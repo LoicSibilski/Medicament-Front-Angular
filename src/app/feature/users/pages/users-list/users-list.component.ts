@@ -26,6 +26,10 @@ export class UsersListComponent implements OnInit {
     this.service.findAllByCompteId(this.compteId).subscribe(
       (data:User[])=>this.users = data,
       console.error)
+
+    this.service.findAllAssistantsByCompteId(this.compteId).subscribe(
+      (data:AssistantOuAssiste[])=>this.assistants = data,
+      console.error)
   }
 
 }

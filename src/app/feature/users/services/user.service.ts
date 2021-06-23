@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
+import { AssistantOuAssiste } from '../models/assistant-ou-assiste';
 import { User } from '../models/user';
 
 @Injectable({
@@ -19,6 +20,10 @@ export class UserService {
 
   findAllByCompteId = (id : string) : Observable<User[]> => {
     return this.http.get<User[]>(`${this.baseUrl}/${id}/utilisateurs`)
+  }
+
+  findAllAssistantsByCompteId = (id : string) : Observable<AssistantOuAssiste[]> => {
+    return this.http.get<AssistantOuAssiste[]>(`${this.baseUrl}/${id}/assistants`);
   }
 
   findById = (id : string) : Observable<User> => {
