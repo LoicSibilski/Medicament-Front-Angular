@@ -9,9 +9,9 @@
         </div>
     </div>
     
-    <div id="assistant-area" *ngIf="assistants">
+    <div id="assistant-area" *ngIf="assistantsTailleTableau > 0">
         <p>Assistant(s)</p>
-        <div class="profile" routerLink="/utilisateurs/assistant/:id" *ngFor="let assistant of assistants">
+        <div class="profile" *ngFor="let assistant of assistants">
             <div class="profile-picture"></div>
             <span>{{assistant.nom}} {{assistant.prenom}}</span>
         </div>
@@ -26,3 +26,6 @@
         Retour
     </app-button-redirector>
 </div>
+
+
+<button type="button" (click)="montrerLogs()">Logs</button>

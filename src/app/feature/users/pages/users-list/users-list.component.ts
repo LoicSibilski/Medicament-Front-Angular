@@ -11,10 +11,11 @@ import { UserService } from '../../services/user.service';
 })
 export class UsersListComponent implements OnInit {
 
-  compteId : string = "60bf6cc671add870faebfc22";
+  compteId : string = "60d33cc7d6a0c74f0c8f0936";
 
   users : User[];
   assistants : AssistantOuAssiste[];
+  assistantsTailleTableau : number;
   assistes : AssistantOuAssiste[];
 
   constructor(
@@ -30,6 +31,14 @@ export class UsersListComponent implements OnInit {
     this.service.findAllAssistantsByCompteId(this.compteId).subscribe(
       (data:AssistantOuAssiste[])=>this.assistants = data,
       console.error)
+
+    this.service.findAllAssistantsByCompteId(this.compteId).subscribe(
+      (data:AssistantOuAssiste[])=>this.assistantsTailleTableau = data.length,
+      console.error)  
+  }
+
+  montrerLogs = () => {
+    console.log(this.assistants.length)
   }
 
 }
