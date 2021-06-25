@@ -16,6 +16,14 @@
             <span>{{assistant.nom}} {{assistant.prenom}}</span>
         </div>
     </div>
+
+    <div id="assistes-area">
+        <p>Assisté(s)</p>
+        <div class="profile" *ngFor="let assiste of assistes">
+            <div class="profile-picture"></div>
+            <span>{{assiste.nom}} {{assiste.prenom}}</span>
+        </div>
+    </div>
 </div>
 
 <div id="button-container">

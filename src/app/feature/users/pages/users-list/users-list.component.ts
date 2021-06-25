@@ -11,7 +11,7 @@ import { UserService } from '../../services/user.service';
 })
 export class UsersListComponent implements OnInit {
 
-  compteId : string = "60d33cc7d6a0c74f0c8f0936";
+  compteId : string = "60bf6ba371add870faebfc20";
 
   users : User[];
   assistants : AssistantOuAssiste[];
@@ -35,6 +35,13 @@ export class UsersListComponent implements OnInit {
     this.service.findAllAssistantsByCompteId(this.compteId).subscribe(
       (data:AssistantOuAssiste[])=>this.assistantsTailleTableau = data.length,
       console.error)  
+
+    this.service.findAllAssistesByUtilisateurId('60c7089d62cc546af3942df3').subscribe(
+      (data:AssistantOuAssiste[])=> this.assistes = data,
+      console.error
+    )
+
+    this.service.findAllAssistesByCompteId(this.compteId);
   }
 
   montrerLogs = () => {

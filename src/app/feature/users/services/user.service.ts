@@ -26,6 +26,30 @@ export class UserService {
     return this.http.get<AssistantOuAssiste[]>(`${this.baseUrl}/${id}/assistants`);
   }
 
+  findAllAssistesByUtilisateurId = (id: string) : Observable<AssistantOuAssiste[]> => {
+    return this.http.get<AssistantOuAssiste[]>(`${this.baseUrl}/${id}/assistes`);
+  }
+
+  findAllAssistesByCompteId = (id: string) => {
+    let utilisateurs : User[];
+    let assistantsCompte : AssistantOuAssiste[];
+    let assistantsUtilisateur : AssistantOuAssiste[];
+    this.findAllByCompteId(id).subscribe(listUsers=> {
+      console.log(listUsers);
+      utilisateurs = listUsers;
+      utilisateurs.forEach(utilisateur => {
+
+        this.findAllAssistesByUtilisateurId(utilisateur.utilisateurId).subscribe(data =>{
+          assistantsUtilisateur = data;
+          assistantsUtilisateur.forEach(assistant=> {
+            assistantsCompte.push(assistant);
+          });
+        });
+      });
+    });
+    return assistantsCompte;
+  }
+
   findById = (id : string) : Observable<User> => {
     return this.http.get<User>(`${this.baseUrl}/${id}`);
   }

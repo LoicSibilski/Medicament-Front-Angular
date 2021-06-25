@@ -1,12 +1,12 @@
 export class AssistantOuAssiste {
-    public compteId : number;
-    public utilisateurId : number;
+    public compteId : string;
+    public utilisateurId : string;
     public nom : string;
     public prenom : string;
     public isAssistant : boolean;
 
     constructor(
-        compteId : number, utilisateurId : number, nom : string, prenom : string, isAssistant : boolean) {
+        compteId : string, utilisateurId : string, nom : string, prenom : string, isAssistant : boolean) {
             this.compteId = compteId;
             this.utilisateurId = utilisateurId;
             this.nom = nom;

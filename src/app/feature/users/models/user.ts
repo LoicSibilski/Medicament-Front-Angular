@@ -4,8 +4,8 @@ import { Rendezvous } from "../../rendezvous/models/rendezvous";
 import { AssistantOuAssiste } from "./assistant-ou-assiste";
 
 export class User {
-    public compteId : number;
-    public utilisateurId : number;
+    public compteId : string;
+    public utilisateurId : string;
     public nom : string;
     public prenom : string;
     public dateDeNaissance : Date;
@@ -16,8 +16,8 @@ export class User {
     public rendezVous : Rendezvous[];
 
     constructor(
-        compteId : number,
-        utilisateurId : number,
+        compteId : string,
+        utilisateurId : string,
         nom : string,
         prenom : string,
         dateDeNaissance : Date,
